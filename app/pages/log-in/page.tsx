@@ -3,7 +3,8 @@
 import React from "react";
 import axios from "axios";
 import Link from "next/link";
-// import { useRouter } from "next/navigation";
+import AppContexts from "@/app/lib/context";
+import { useRouter } from "next/navigation";
 
 type FormData = {
   email: string;
@@ -11,8 +12,11 @@ type FormData = {
 };
 
 function LogIn() {
+
+  const {setUser} = React.useContext(AppContexts);
+
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-  // const router = useRouter();
+  const router = useRouter();
 
   const [form, setForm] = React.useState<FormData>({
     email: "",
@@ -44,15 +48,17 @@ function LogIn() {
         }
       );
 
-      // Save JWT Tokens
       localStorage.setItem("access", response.data.access);
       localStorage.setItem("refresh", response.data.refresh);
+      localStorage.setItem("user", JSON.stringify({username: response.data.username, email: response.data.email, id: response.data.id}));
+      setUser({username: response.data.username, email: response.data.email});
+      
 
       setSuccess("Login successful!");
 
       console.log(response.data);
 
-      // router.push("/dashboard");
+      router.push("/");
 
     } catch (err: any) {
       console.error(err);
