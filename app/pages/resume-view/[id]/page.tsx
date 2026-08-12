@@ -100,17 +100,7 @@ function ResumeView() {
 
                 console.log("Full API response:", response.data);
 
-                /*
-                    Your backend returns:
-
-                    {
-                        "data": {
-                            ...
-                        }
-                    }
-
-                    Therefore we need response.data.data
-                */
+               
 
                 const resumeData = response.data.data;
 
@@ -138,11 +128,6 @@ function ResumeView() {
         fetchResume();
     }, [id]);
 
-    /*
-    |--------------------------------------------------------------------------
-    | Loading
-    |--------------------------------------------------------------------------
-    */
 
     if (loading) {
         return (
@@ -158,11 +143,7 @@ function ResumeView() {
         );
     }
 
-    /*
-    |--------------------------------------------------------------------------
-    | Error
-    |--------------------------------------------------------------------------
-    */
+   
 
     if (error) {
         return (
@@ -193,11 +174,7 @@ function ResumeView() {
         );
     }
 
-    /*
-    |--------------------------------------------------------------------------
-    | Resume Not Found
-    |--------------------------------------------------------------------------
-    */
+   
 
     if (!resume) {
         return (
@@ -209,12 +186,7 @@ function ResumeView() {
         );
     }
 
-    /*
-    |--------------------------------------------------------------------------
-    | Useful values
-    |--------------------------------------------------------------------------
-    */
-
+   
     const backendUrl =
         process.env.NEXT_PUBLIC_BACKEND_URL || "";
 
@@ -231,18 +203,13 @@ function ResumeView() {
     const resumeScores =
         resume.text_info?.ResumeScores;
 
-    /*
-    |--------------------------------------------------------------------------
-    | Main UI
-    |--------------------------------------------------------------------------
-    */
+ 
 
     return (
         <main className="min-h-screen bg-gray-50 py-8 md:py-10">
 
             <div className="max-w-6xl mx-auto px-4 sm:px-6">
 
-                {/* Back Button */}
 
                 <button
                     onClick={() => window.history.back()}

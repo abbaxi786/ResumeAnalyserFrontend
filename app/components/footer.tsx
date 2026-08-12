@@ -69,7 +69,7 @@ function Footer() {
             </p>
 
             <Link
-              href="/analyze"
+              href="/pages/post_resume"
               className="inline-block mt-4 px-5 py-2 rounded-lg bg-white text-blue-900 font-semibold hover:bg-blue-100 transition-colors"
             >
               Analyze Resume

@@ -33,7 +33,6 @@ function Nav() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="h-16 flex items-center justify-between">
 
-          {/* Logo */}
           <Link
             href="/"
             className="text-2xl font-bold tracking-wide hover:text-blue-200 transition-colors"
@@ -41,7 +40,6 @@ function Nav() {
             Resume Analyzer
           </Link>
 
-          {/* Navigation */}
           <div className="flex items-center gap-6">
 
             <Link
@@ -52,7 +50,7 @@ function Nav() {
             </Link>
 
             <Link
-              href="/about"
+              href="/pages/about"
               className="hover:text-blue-200 transition-colors"
             >
               About

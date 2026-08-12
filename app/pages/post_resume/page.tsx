@@ -2,6 +2,7 @@
 
 import React, { useState, ChangeEvent } from "react";
 import axios from "axios";
+import Link from "next/link";
 
 
 interface ResumeResult {
@@ -105,7 +106,6 @@ const removeFile = (index: number) => {
 
       const formData = new FormData();
 
-      // Important: API expects "files"
       files.forEach((file) => {
         formData.append("files", file);
       });
@@ -140,6 +140,8 @@ const removeFile = (index: number) => {
           data.error || "Failed to process resumes."
         );
       }
+
+      console.log(data.results)
 
       setResults(data.results || []);
     } catch (error) {
@@ -397,14 +399,12 @@ const removeFile = (index: number) => {
 
                         <td className="px-5 py-4">
                           {result.url && (
-                            <a
+                            <Link
                               href={result.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
                               className="font-medium text-blue-900 hover:underline"
                             >
                               View Resume
-                            </a>
+                            </Link>
                           )}
                         </td>
                       </tr>

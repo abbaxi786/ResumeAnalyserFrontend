@@ -118,15 +118,22 @@ function ResumeResults() {
     <main className="min-h-screen bg-slate-50 py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-blue-900">
-            Resume Results
-          </h1>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
 
-          <p className="mt-2 text-gray-600">
-            View and compare your previously analyzed resumes.
-          </p>
+          <div>
+            <h1 className="text-3xl md:text-4xl font-bold text-blue-900">
+              Resume Results
+            </h1>
+
+            <p className="mt-2 text-gray-600">
+              View and compare your previously analyzed resumes.
+            </p>
+          </div>
+          <div>
+            <Link className="inline-block px-5 py-3 bg-blue-900 text-white rounded-lg font-semibold hover:bg-blue-800 transition" href={'/pages/post_resume'}>Analyze Resume</Link>
+          </div>
+          </div>
         </div>
 
         {/* Empty State */}
