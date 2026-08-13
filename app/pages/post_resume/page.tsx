@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState, ChangeEvent } from "react";
+import React, { useState, ChangeEvent,useEffect } from "react";
 import axios from "axios";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 
 interface ResumeResult {
@@ -47,6 +48,15 @@ function PostResume() {
   const [results, setResults] = useState<ResumeResult[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const router = useRouter();
+
+  useEffect(() => {
+    const access = localStorage.getItem("access");
+    if (!access) {
+      setError("Access token is missing. Please log in.");
+      router.push("/pages/log-in");
+    }
+  }, []);
 
   const handleFileChange = (
   event: React.ChangeEvent<HTMLInputElement>
