@@ -16,6 +16,7 @@ export default function LogoutButton() {
     localStorage.removeItem("access");
     localStorage.removeItem("refresh");
     localStorage.removeItem("user");
+    window.location.reload();
     router.push("/");
   };
 
